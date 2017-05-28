@@ -1,43 +1,45 @@
-svgPieTimer.js
+react-SVGPieTimer
 ================
 
-Animating an SVG Pie Timer in javascript
-
-Current version: 0.9.1 released 28.08.2014
-
+React component for an animated SVG Pie Timer.
 
 Recommended use
 ---------------
 
-```html
-<script src="http://cdn.rawgit.com/darius/requestAnimationFrame/master/requestAnimationFrame.min.js"></script>
-<script src="svgPieTimer.min.js"></script>
-<script>
-svgPieTimer({
-    element: SVGPathElement,
-    duration: 1000,
-    loops: 2
-});
-</script>
+```javascript
+<SVGPieTimer
+	height={250}
+	width={250}
+	duration={2000}
+	loops={2}
+/>
 ```
-
-
-Demo
----------------
-For a demonstration see [this CodePen](http://codepen.io/agrimsrud/pen/Dhbfy).
-
 
 Properties
 ---------------
+As seen above, you will need the following properties:
 
-As seen above, you can call svgPieTimer() with the following properties:
+`width` (mandatory) Set the width of the svg. 
 
-`element` (required) SVG Path element to animate. Will accept array.
+`height` (mandatory) Set the height of the svg. 
 
-`duration` (optional) Set duration in milliseconds.
+`duration` (optional) Set duration in milliseconds. Defaults to 1000.
 
-`loops` (optional) Set amount of spins. Leave blank for 1 spin. Set to 0 for infinite spins.
+`loops` (optional) Set amount of spins. Set to 0 for infinite spins. Defaults to 1.
 
+Pie colors
+---------------
+You can set the color for the inner circle and the outer circle by setting the values in these classes:
+
+```css
+.svg-loader { 
+  fill: #0088cc;
+}
+
+.svg-border { 
+  fill: #00517a;
+}
+```
 
 requestAnimationFrame
 ---------------
@@ -46,9 +48,19 @@ To optimize for performance, I've decided to use requestAnimationFrame. Browser 
 
 Authors and credits
 ---------------
-Created by [Anders Grimsrud](grint.no). This release is a refined version of the initial [SVG Pie Timer](http://codepen.io/agrimsrud/pen/EmCoa) experiment.
+React component created by [Fabian Enos](http://fabianenos.com/).
+
+Animation code created by [Anders Grimsrud](http://grint.no). 
 
 Inspired by the [Color Wheel](http://itpastorn.github.io/webbteknik/future-stuff/svg/color-wheel.html) by [Lars Gunther](https://github.com/itpastorn).
+
+History
+---------------
+[React version](https://github.com/fabianTMC/react-SVGPieTimer) 
+
+[Refined SVG Pie Timer](https://github.com/agrimsrud/svgPieTimer.js)
+
+[Initial SVG Pie Timer](http://codepen.io/agrimsrud/pen/EmCoa) experiment.
 
 
 License
