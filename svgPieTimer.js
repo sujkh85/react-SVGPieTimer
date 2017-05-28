@@ -52,6 +52,11 @@ class SVGPieTimer extends React.Component {
             if(remaining < this.state.totalDuration && this.state.loops) return
         }
 
+    
+        if(this.props.reverse && this.props.reverse === true) {
+            rate = 360 - rate;
+        }
+
         this.draw(rate);
       
        // Draw after requesting the next frame

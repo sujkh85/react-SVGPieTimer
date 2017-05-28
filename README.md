@@ -12,6 +12,7 @@ Recommended use
 	width={250}
 	duration={2000}
 	loops={2}
+	reverse={true}
 />
 ```
 
@@ -26,6 +27,8 @@ As seen above, you will need the following properties:
 `duration` (optional) Set duration in milliseconds. Defaults to 1000.
 
 `loops` (optional) Set amount of spins. Set to 0 for infinite spins. Defaults to 1.
+
+`reverse` (optional) Empty the circle rather than fill it.
 
 Pie colors
 ---------------
