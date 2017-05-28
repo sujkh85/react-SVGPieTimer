@@ -71,10 +71,17 @@ class SVGPieTimer extends React.Component {
         var rad = (angle * Math.PI / 180), 
             x = Math.sin(rad) * (this.props.width / 2),
             y = Math.cos(rad) * - (this.props.height / 2),
-            mid = (angle > 180) ? 1 : 0, 
-            shape = 'M 0 0 v '+ -(this.props.height / 2) + ' A ' + (this.props.width / 2) + ' ' + (this.props.width / 2) + ' 1 '
-                   + mid + ' 1 ' 
-                   +  x  + ' ' 
+            mid = (angle > 180) ? 1 : 0,
+            sweepDirection = 1;
+
+        if(this.props.inverse && this.props.inverse === true) {
+            mid = Math.abs(mid - 1);
+            sweepDirection = 0;
+        }
+            
+        var shape = 'M 0 0 v '+ -(this.props.height / 2) + ' A ' + (this.props.width / 2) + ' ' + (this.props.width / 2) + ' 1 '
+                   + mid + ' ' + sweepDirection + ' ' 
+                   + x  + ' ' 
                    +  y  + ' z';
       
         this.refs.border.setAttribute('d', shape)

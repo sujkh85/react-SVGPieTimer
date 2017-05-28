@@ -13,6 +13,7 @@ Recommended use
 	duration={2000}
 	loops={2}
 	reverse={true}
+	inverse={false}
 />
 ```
 
@@ -28,7 +29,9 @@ As seen above, you will need the following properties:
 
 `loops` (optional) Set amount of spins. Set to 0 for infinite spins. Defaults to 1.
 
-`reverse` (optional) Empty the circle rather than fill it.
+`reverse` (optional) Empty the circle from the reverse direction rather than fill it.
+
+`inverse` (optional) Empty the circle from the same direction rather than fill it.
 
 Pie colors
 ---------------
