@@ -20,7 +20,8 @@ class SVGPieTimer extends React.Component {
             duration: duration,
             loops: n,
             end: end,
-            totalDuration: totalDuration
+            totalDuration: totalDuration,
+            showDuration: false
         };
     }   
     
@@ -88,17 +89,29 @@ class SVGPieTimer extends React.Component {
         this.refs.loader.setAttribute('d', shape)
     }
 
+    fmtMSS(s) {
+        return(s-(s%=60))/60+(9<s?':':':0')+s;
+    }
+
+    toggleShow() {
+        this.setState({
+            showDuration: !this.state.showDuration
+        })
+    }
+
     componentDidMount() {
         this.frame();
     }
 
     render() {
         return (
-            <div>
-                <svg width={this.props.width} height={this.props.width} viewbox={"0 0 " + this.props.width + "" + this.props.height}>
-                  <path className="svg-border" ref="border" transform={"translate(" + this.props.width/2 + " " + this.props.height/2 + ")"} />
-                  <path className="svg-loader" ref="loader" transform={"translate(" + this.props.width/2 + " " + this.props.height/2 + ")  scale(.84)"} />
+            <div className="svgPieTimer">
+                <svg style={{'cursor': 'pointer'}} onClick={this.toggleShow.bind(this)} width={this.props.width} height={this.props.width} viewbox={"0 0 " + this.props.width + "" + this.props.height}>
+                    <path className="svg-border" ref="border" transform={"translate(" + this.props.width/2 + " " + this.props.height/2 + ")"} />
+                    <path className="svg-loader" ref="loader" transform={"translate(" + this.props.width/2 + " " + this.props.height/2 + ")  scale(.84)"} />
                 </svg>
+                
+                <span style={this.state.showDuration === true ? {'marginTop': '10px', 'cursor': 'pointer', 'display': 'block'} : {'display': 'none'}} onClick={this.toggleShow.bind(this)}>{this.fmtMSS(((this.state.end - Date.now()) / 1000).toFixed(0))}</span>
             </div>
         );
     }   

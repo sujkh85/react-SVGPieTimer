@@ -2,6 +2,7 @@ react-SVGPieTimer
 ================
 
 React component for an animated SVG Pie Timer.
+When you click on the timer, it will show you the remaining time left. Click on it again, to hide the reminaing time.
 
 Recommended use
 ---------------
