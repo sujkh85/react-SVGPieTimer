@@ -22,9 +22,9 @@ Properties
 ---------------
 As seen above, you will need the following properties:
 
-`width` (mandatory) Set the width of the svg. 
+`width` (mandatory) Set the width of the svg.
 
-`height` (mandatory) Set the height of the svg. 
+`height` (mandatory) Set the height of the svg.
 
 `duration` (optional) Set duration in milliseconds. Defaults to 1000.
 
@@ -39,11 +39,11 @@ Pie colors
 You can set the color for the inner circle and the outer circle by setting the values in these classes:
 
 ```css
-.svg-loader { 
+.svg-loader {
   fill: #0088cc;
 }
 
-.svg-border { 
+.svg-border {
   fill: #00517a;
 }
 ```
@@ -57,13 +57,13 @@ Authors and credits
 ---------------
 React component created by [Fabian Enos](http://fabianenos.com/).
 
-Animation code created by [Anders Grimsrud](http://grint.no). 
+Animation code created by [Anders Grimsrud](http://grint.no).
 
 Inspired by the [Color Wheel](http://itpastorn.github.io/webbteknik/future-stuff/svg/color-wheel.html) by [Lars Gunther](https://github.com/itpastorn).
 
 History
 ---------------
-[React version](https://github.com/fabianTMC/react-SVGPieTimer) 
+[React version](https://github.com/fabianTMC/react-SVGPieTimer)
 
 [Refined SVG Pie Timer](https://github.com/agrimsrud/svgPieTimer.js)
 
@@ -72,4 +72,4 @@ History
 
 License
 ---------------
-Released under the [MIT License](http://opensource.org/licenses/mit-license.php).
+Released under the [MIT License](https://github.com/fabianTMC/react-SVGPieTimer/blob/master/LICENSE.txt).
