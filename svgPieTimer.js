@@ -1,7 +1,8 @@
 /*! SVG Pie Timer | 0.9.1 | Anders Grimsrud | grint.no */
 /*! React version | 1.0 | Fabian Enos | fabianenos.com */
 /*! MIT License */
-class SVGPieTimer extends React.Component {
+import React from 'react';
+export default class SVGPieTimer extends React.Component {
     constructor(props) {
         super(props);
 
@@ -15,7 +16,7 @@ class SVGPieTimer extends React.Component {
             n = (props.loops == 0) ? 0 : props.loops ? props.loops : 1,
             end = Date.now() + duration * n,
             totalDuration = duration * n;
-        
+
         this.state = {
             duration: duration,
             loops: n,
@@ -23,9 +24,9 @@ class SVGPieTimer extends React.Component {
             totalDuration: totalDuration,
             showDuration: false
         };
-    }   
-    
-    // Animate frame by frame 
+    }
+
+    // Animate frame by frame
     frame() {
         var current = Date.now(),
             remaining = this.state.end - current,
@@ -38,28 +39,28 @@ class SVGPieTimer extends React.Component {
 
         rate = this.state.loops + 1 - remaining / this.state.duration;
 
-        // As requestAnimationFrame will draw whenever capable, 
+        // As requestAnimationFrame will draw whenever capable,
         // the animation might end before it reaches 100%.
         // Let's simulate completeness on the last visual
         // frame of the loop, regardless of actual progress
         if(remaining < 60) {
-            
+
             // 1.0 might break, set to slightly lower than 1
             // Update: Set to slightly lower than n instead
             this.draw(this.state.loops - 0.0001);
-          
-          
+
+
             // Stop animating when we reach the total number loops
             if(remaining < this.state.totalDuration && this.state.loops) return
         }
 
-    
+
         if(this.props.reverse && this.props.reverse === true) {
             rate = 360 - rate;
         }
 
         this.draw(rate);
-      
+
        // Draw after requesting the next frame
        requestAnimationFrame(this.frame.bind(this));
     }
@@ -69,7 +70,7 @@ class SVGPieTimer extends React.Component {
 
         angle %= 360;
 
-        var rad = (angle * Math.PI / 180), 
+        var rad = (angle * Math.PI / 180),
             x = Math.sin(rad) * (this.props.width / 2),
             y = Math.cos(rad) * - (this.props.height / 2),
             mid = (angle > 180) ? 1 : 0,
@@ -79,12 +80,12 @@ class SVGPieTimer extends React.Component {
             mid = Math.abs(mid - 1);
             sweepDirection = 0;
         }
-            
+
         var shape = 'M 0 0 v '+ -(this.props.height / 2) + ' A ' + (this.props.width / 2) + ' ' + (this.props.width / 2) + ' 1 '
-                   + mid + ' ' + sweepDirection + ' ' 
-                   + x  + ' ' 
+                   + mid + ' ' + sweepDirection + ' '
+                   + x  + ' '
                    +  y  + ' z';
-      
+
         this.refs.border.setAttribute('d', shape)
         this.refs.loader.setAttribute('d', shape)
     }
@@ -110,9 +111,9 @@ class SVGPieTimer extends React.Component {
                     <path className="svg-border" ref="border" transform={"translate(" + this.props.width/2 + " " + this.props.height/2 + ")"} />
                     <path className="svg-loader" ref="loader" transform={"translate(" + this.props.width/2 + " " + this.props.height/2 + ")  scale(.84)"} />
                 </svg>
-                
+
                 <span style={this.state.showDuration === true ? {'marginTop': '10px', 'cursor': 'pointer', 'display': 'block'} : {'display': 'none'}} onClick={this.toggleShow.bind(this)}>{this.fmtMSS(((this.state.end - Date.now()) / 1000).toFixed(0))}</span>
             </div>
         );
-    }   
+    }
 }

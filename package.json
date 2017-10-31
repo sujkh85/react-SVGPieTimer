@@ -1,8 +1,13 @@
 {
   "name": "react-svgpietimer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React component for an animated SVG Pie Timer.",
   "main": "svgPieTimer.js",
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/fabianTMC/react-SVGPieTimer/issues"
   },
-  "homepage": "https://github.com/fabianTMC/react-SVGPieTimer#readme"
+  "homepage": "https://github.com/fabianTMC/react-SVGPieTimer#readme",
+  "dependencies": {
+    "react": "^16.0.0"
+  }
 }
