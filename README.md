@@ -1,25 +1,29 @@
-react-SVGPieTimer
-================
+# react-SVGPieTimer
 
 React component for an animated SVG Pie Timer.
 When you click on the timer, it will show you the remaining time left. Click on it again, to hide the reminaing time.
 
-Recommended use
----------------
+## Recommended use
 
 ```javascript
-<SVGPieTimer
-	height={250}
-	width={250}
-	duration={2000}
-	loops={2}
-	reverse={true}
-	inverse={false}
+<PieTimer
+  height={100}
+  width={100}
+  duration={5 * 1000}
+  loops={1}
+  reverse={false}
+  inverse={true}
+  color={'blue'}
+  clickRestart={true}
+  restartKey={'change and reflash'}
+  onChange={() => {
+    console.log('onin');
+  }}
 />
 ```
 
-Properties
----------------
+## Properties
+
 As seen above, you will need the following properties:
 
 `width` (mandatory) Set the width of the svg.
@@ -34,8 +38,8 @@ As seen above, you will need the following properties:
 
 `inverse` (optional) Empty the circle from the same direction rather than fill it.
 
-Pie colors
----------------
+## Pie colors
+
 You can set the color for the inner circle and the outer circle by setting the values in these classes:
 
 ```css
@@ -48,28 +52,26 @@ You can set the color for the inner circle and the outer circle by setting the v
 }
 ```
 
-requestAnimationFrame
----------------
+## requestAnimationFrame
+
 To optimize for performance, I've decided to use requestAnimationFrame. Browser support is good, but could have been better. I recommend using a polyfill for older browsers like IE9. Personally I prefer [this one](https://github.com/darius/requestAnimationFrame) by Darius Bacon, based on the polyfill by Erik Möller.
 
+## Authors and credits
 
-Authors and credits
----------------
 React component created by [Fabian Enos](http://fabianenos.com/).
 
 Animation code created by [Anders Grimsrud](http://grint.no).
 
 Inspired by the [Color Wheel](http://itpastorn.github.io/webbteknik/future-stuff/svg/color-wheel.html) by [Lars Gunther](https://github.com/itpastorn).
 
-History
----------------
+## History
+
 [React version](https://github.com/fabianTMC/react-SVGPieTimer)
 
 [Refined SVG Pie Timer](https://github.com/agrimsrud/svgPieTimer.js)
 
 [Initial SVG Pie Timer](http://codepen.io/agrimsrud/pen/EmCoa) experiment.
 
+## License
 
-License
----------------
 Released under the [MIT License](https://github.com/fabianTMC/react-SVGPieTimer/blob/master/LICENSE.txt).
