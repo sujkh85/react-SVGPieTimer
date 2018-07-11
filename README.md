@@ -1,4 +1,6 @@
-# react-SVGPieTimer
+# mywork delete loops add clickRestart color restartKey onChange
+
+## react-SVGPieTimer
 
 React component for an animated SVG Pie Timer.
 When you click on the timer, it will show you the remaining time left. Click on it again, to hide the reminaing time.
@@ -13,11 +15,16 @@ When you click on the timer, it will show you the remaining time left. Click on 
   loops={1}
   reverse={false}
   inverse={true}
+  //mywork
+
+  //pie color
   color={'blue'}
+  //Click to restart.
   clickRestart={true}
-  restartKey={'change and reflash'}
+  restartKey={'Change the word. Start again.'}
+  //Executed when restarted.
   onChange={() => {
-    console.log('onin');
+    console.log('restarted');
   }}
 />
 ```
