@@ -148,11 +148,11 @@ export default class PieTimer extends React.Component {
   }
 
   render() {
-    const { color, width, height } = this.props;
+    const { color, width, height, backgroundColor } = this.props;
     return (
       <div
         onClick={this.reflash}
-        style={{ width, height, borderRadius: '50%' }}
+        style={{ width, height, borderRadius: '50%', backgroundColor }}
       >
         <svg
           style={{ cursor: 'pointer' }}

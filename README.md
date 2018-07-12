@@ -19,6 +19,7 @@ When you click on the timer, it will show you the remaining time left. Click on 
 
   //pie color
   color={'blue'}
+  backgroundColor={'yellow'}
   //Click to restart.
   clickRestart={true}
   restartKey={'Change the word. Start again.'}
