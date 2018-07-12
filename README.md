@@ -23,8 +23,8 @@ When you click on the timer, it will show you the remaining time left. Click on 
   clickRestart={true}
   restartKey={'Change the word. Start again.'}
   //Executed when restarted.
-  onChange={() => {
-    console.log('restarted');
+  onChange={type => {
+    console.log('restart or timeout', type);
   }}
 />
 ```
