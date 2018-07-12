@@ -16,7 +16,7 @@ When you click on the timer, it will show you the remaining time left. Click on 
   reverse={false}
   inverse={true}
   //mywork
-
+  className="your_class"
   //pie color
   color={'blue'}
   backgroundColor={'yellow'}

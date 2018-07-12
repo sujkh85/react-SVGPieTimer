@@ -148,7 +148,7 @@ export default class PieTimer extends React.Component {
   }
 
   render() {
-    const { color, width, height, backgroundColor } = this.props;
+    const { color, width, height, backgroundColor, className } = this.props;
     return (
       <div
         onClick={this.reflash}
@@ -159,6 +159,7 @@ export default class PieTimer extends React.Component {
           width={width}
           height={height}
           viewBox={'0 0 ' + this.props.width + ' ' + this.props.height}
+          className={className}
         >
           <path
             className="svg-border"
