@@ -67,7 +67,7 @@ export default class PieTimer extends React.Component {
 
     angle %= 360;
 
-    let rad = angle * Math.PI / 180,
+    let rad = (angle * Math.PI) / 180,
       x = Math.sin(rad) * (this.props.width / 2),
       y = Math.cos(rad) * -(this.props.height / 2),
       mid = angle > 180 ? 1 : 0,
@@ -108,6 +108,7 @@ export default class PieTimer extends React.Component {
     if (clickRestart) {
       this.setState(this.initState(), () => {
         this.frame();
+        this.setTimer();
       });
     }
     if (this.props.onChange) {
@@ -115,8 +116,24 @@ export default class PieTimer extends React.Component {
     }
   };
 
+  timer = null;
+
+  setTimer = () => {
+    const { duration } = this.state;
+    if (this.timer) {
+      clearTimeout(this.timer);
+      this.timer = null;
+    }
+    this.timer = setTimeout(() => {
+      if (this.props.onChange) {
+        this.props.onChange('timeout');
+      }
+    }, duration);
+  };
+
   componentDidMount() {
     this.frame();
+    this.setTimer();
   }
 
   componentDidUpdate(prevProps) {
@@ -124,6 +141,10 @@ export default class PieTimer extends React.Component {
     if (restartKey !== prevProps.restartKey) {
       this.reflash();
     }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
   }
 
   render() {
