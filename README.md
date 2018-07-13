@@ -1,4 +1,8 @@
-# mywork delete loops add clickRestart color restartKey onChange
+# mywork
+
+delete loops
+
+add clickRestart color restartKey onChange
 
 ## react-SVGPieTimer
 
